@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        IMAGEN = "josedom24/myapp"
+        IMAGEN = "docker-library/httpd"
         USUARIO = 'USER_DOCKERHUB'
     }
     agent any
@@ -39,8 +39,8 @@ pipeline {
         }
         stage('Clean Up') {
             steps {
-                sh "docker rmi $IMAGEN:$BUILD_NUMBER"
-                }
+                /* sh "docker rmi $IMAGEN:$BUILD_NUMBER" */ 
+            }
         }
     }
 }
